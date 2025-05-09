@@ -1,0 +1,146 @@
+<?php
+session_start();
+
+// Conexión a la base de datos
+$servername = "localhost";
+$username = "root";
+$password = "Mysql2024";
+$dbname = "login";
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+if ($conn->connect_error) die("Conexión fallida: " . $conn->connect_error);
+$mensaje = "";
+
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    $Name = trim($_POST['Name'] ?? '');
+    $LastName = trim($_POST['LastName'] ?? '');
+    $Gender = trim($_POST['Gender'] ?? '');
+    $User = trim($_POST['User'] ?? '');
+    $Email = trim($_POST['Email'] ?? '');
+    $pass = $_POST['Contraseña'] ?? '';
+    
+
+
+    if (isset($_POST['login'])) {
+        $stmt = $conn->prepare("SELECT * FROM usuario WHERE Email = ?");
+        $stmt->bind_param("s", $Email);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        if ($result && $result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            if (password_verify($pass, $row['Contraseña'])) {
+                $_SESSION['User'] = $row['User'];
+                header("Location: PaginaPrincipal.php");
+                exit;
+            } else {
+                $mensaje = "❌ Contraseña incorrecta.";
+            }
+        } else {
+            $mensaje = "❌ Usuario no encontrado.";
+        }
+
+        $stmt->close();
+    }
+
+    if (isset($_POST['register'])) {
+        $User = trim($_POST['User']);
+        $check = $conn->prepare("SELECT * FROM usuario WHERE Email = ?");
+        $check->bind_param("s", $Email);
+        $check->execute();
+        $exists = $check->get_result()->num_rows > 0;
+        $check->close();
+
+        if ($exists) {
+            $mensaje = "⚠️ El correo ya está registrado.";
+        } else {
+            $pass_hashed = password_hash($pass, PASSWORD_DEFAULT);
+            $stmt = $conn->prepare("INSERT INTO usuario (Name, Lastname, Gender, User, Email, Contraseña) VALUES (?, ?, ?, ?, ?, ?)");
+            if (!$stmt) {
+                die("Error en la preparación de la consulta: " . $conn->error);
+            }
+            $stmt->bind_param("ssssss", $Name, $LastName, $Gender, $User, $Email, $pass_hashed);
+            $mensaje = $stmt->execute() ? "✅ Registro exitoso." : "❌ Error al registrar: " . $stmt->error;
+            $stmt->close();
+        }
+    }
+}
+$conn->close();
+?>
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login y Registro</title>
+    <link rel="stylesheet" href="Css/Login.css">
+    <link rel="stylesheet" href="Css/FondoLogin.css">
+    <link rel="stylesheet" href="Css/Responsivo.css">
+</head>
+<body>
+
+<nav class="nav">
+    <div class="nav-contenido">
+<h1 class="Logo">My NoteBook</h1>
+    <div class="nav-items">
+        <a href="#login" class="nav-item" id="Mov" onclick="MostrarForm('login')">Iniciar Sesión</a>
+        <a href="#registro" class="nav-item" id="Mov2" onclick="MostrarForm('registro')">Registrarse</a>
+        </div>
+    </div>
+</nav>
+
+
+<?php if (!empty($mensaje)) : ?>
+    <div class="mensaje">
+        <p><?php echo htmlspecialchars($mensaje); ?></p>
+    </div>
+<?php endif; ?>
+
+
+
+
+    <div class="Contenedor">
+
+<!-- Login -->
+<div id="from-login" style="display: none;" class="Login">
+    <h2>Iniciar Sesión</h2>
+    <form method="POST" action="">
+        <input type="text" name="User" placeholder="Usuario" required>
+        <input type="email" name="Email" placeholder="Correo Electrónico" required>
+        <input type="password" name="Contraseña" placeholder="Contraseña" required>
+        <button type="submit" name="login">Iniciar Sesión</button>
+    </form>
+</div>
+
+<!-- Registro -->
+<div id="from-registro" style="display: none;" class="Registro">
+    <h2>Registrarse</h2>
+    <form method="POST" action="">
+        <input type="text" name="Name" placeholder="Nombre" required>
+        <input type="text" name="LastName" placeholder="Apellido" required>
+
+        <div class="Genero">
+            <label>
+                <input type="radio" name="Gender" value="Male" required>
+                <span>Masculino</span>
+            </label>
+            <label>
+                <input type="radio" name="Gender" value="Female" required>
+                <span>Femenino</span>
+            </label>
+        </div>
+        <input type="text" name="User" placeholder="Nombre de Usuario" required>
+        <input type="email" name="Email" placeholder="Correo Electrónico" required>
+        <input type="password" name="Contraseña" placeholder="Contraseña" required>
+        <button type="submit" name="register">Registrarse</button>
+    </form>
+</div>
+
+
+<script src="JS/Funcionamiento.js"></script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,18 @@
+/* Este bloque establece estilos generales para márgenes, relleno y el modelo de caja */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Configuración del fondo de la página con una imagen y animación */
+body {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  animation: moveBackground 60s linear infinite;
+  font-family: 'Poppins', sans-serif;
+  color: white;
+}
+

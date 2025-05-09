@@ -1,0 +1,98 @@
+/* TABLET - max-width: 768px */
+@media (max-width: 768px) {
+    .Login, .Registro {
+        width: 90%;
+        padding: 30px;
+        margin: 40px auto;
+    }
+
+    .Contenedor {
+        width: 100vw;
+        padding: 20px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    nav .nav-items {
+        gap: 16px;
+        font-size: 14px;
+    }
+
+    h2 {
+        font-size: 1.6rem;
+    }
+
+    .Logo {
+        font-size: 1.5rem;
+        padding: 10px;
+    }
+}
+
+/* MÓVIL - max-width: 480px */
+@media (max-width: 480px) {
+    .Login, .Registro {
+        width: 95%;
+        padding: 20px;
+        margin: 60px auto;
+    }
+
+    .Contenedor {
+        width: 100vw;
+        padding: 15px;
+        align-items: flex-start;
+    }
+
+    nav .nav-items {
+        display: none;
+    }
+
+    form input,
+    form button {
+        font-size: 1rem;
+        padding: 10px;
+    }
+
+    h2 {
+        font-size: 1.4rem;
+    }
+
+    .Logo {
+        font-size: 1.2rem;
+        padding: 5px;
+    }
+}
+
+/* PANTALLAS GRANDES - min-width: 1920px */
+@media (min-width: 1920px) {
+    body {
+        padding: 20px;
+    }
+
+    .Contenedor {
+        max-width: 500px;
+    }
+
+    form {
+        width: 100%;
+        padding: 50px;
+    }
+
+    form input {
+        padding: 20px;
+        font-size: 18px;
+    }
+
+    form button {
+        padding: 20px;
+        font-size: 20px;
+    }
+
+    nav .nav-items {
+        gap: 30px;
+    }
+
+    video {
+        width: 100%;
+        height: auto;
+    }
+}
