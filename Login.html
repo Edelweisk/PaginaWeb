@@ -1,0 +1,58 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login y Registro</title>
+    <link rel="stylesheet" href="Css/FondoLogin.css">
+    <link rel="stylesheet" href="Css/Responsivo.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Css/Informacion.css">
+</head>
+<body>
+
+<nav class="nav">
+    <div class="nav-contenido">
+        <h1 class="Logo"><img src="Css/Imagenes/Logo EduMind.png" alt=""></h1>
+        <div class="nav-items">
+            <div class="IniciarSesion">
+                <a href="#login" class="nav-item iniciar" id="Mov" onclick="MostrarForm('login')">Iniciar Sesión</a>
+            </div>
+            <div class="Registrarse">
+                <a href="#registro" class="nav-item registrar" id="Mov2" onclick="MostrarForm('registro')">Registrarse</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+
+
+<?php if (!empty($mensaje)) : ?>
+    <div class="mensaje">
+        <p><?php echo htmlspecialchars($mensaje); ?></p>
+    </div>
+<?php endif; ?>
+
+<div class="Informacion">
+
+    <h1 class="Texto1">Organiza, Analiza, Mejora</h1>
+    <h2 class="Texto2">Tu espacio educativo inteligente</h2>
+    </p class= "Texto3">Nuestra plataforma transforma la experiencia de aprendizaje con inteligencia artificial que te ayuda a organizar tus tareas,
+        analizar tu rendimiento académico y mejorar continuamente</p>
+
+</div>
+
+
+
+
+
+
+
+<script src="JS/Funcionamiento.js"></script>
+
+
+
+</body>
+</html>

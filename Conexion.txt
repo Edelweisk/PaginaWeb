@@ -68,39 +68,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 $conn->close();
 ?>
 
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login y Registro</title>
-    <link rel="stylesheet" href="Css/Login.css">
-    <link rel="stylesheet" href="Css/FondoLogin.css">
-    <link rel="stylesheet" href="Css/Responsivo.css">
-</head>
-<body>
-
-<nav class="nav">
-    <div class="nav-contenido">
-<h1 class="Logo">My NoteBook</h1>
-    <div class="nav-items">
-        <a href="#login" class="nav-item" id="Mov" onclick="MostrarForm('login')">Iniciar Sesión</a>
-        <a href="#registro" class="nav-item" id="Mov2" onclick="MostrarForm('registro')">Registrarse</a>
-        </div>
-    </div>
-</nav>
-
-
-<?php if (!empty($mensaje)) : ?>
-    <div class="mensaje">
-        <p><?php echo htmlspecialchars($mensaje); ?></p>
-    </div>
-<?php endif; ?>
 
 
 
 
-    <div class="Contenedor">
+
+
+
+
+ <div class="Contenedor">
 
 <!-- Login -->
 <div id="from-login" style="display: none;" class="Login">
@@ -136,11 +112,3 @@ $conn->close();
         <button type="submit" name="register">Registrarse</button>
     </form>
 </div>
-
-
-<script src="JS/Funcionamiento.js"></script>
-
-
-
-</body>
-</html>
