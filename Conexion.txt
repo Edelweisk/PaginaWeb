@@ -112,3 +112,43 @@ $conn->close();
         <button type="submit" name="register">Registrarse</button>
     </form>
 </div>
+
+
+
+
+<?php if (!empty($mensaje)) : ?>
+    <div class="mensaje">
+        <p><?php echo htmlspecialchars($mensaje); ?></p>
+    </div>
+<?php endif; ?>
+
+
+
+
+
+
+
+
+
+    <div class="nav-items">
+            <div class="IniciarSesion">
+                <a href="#login" class="nav-item iniciar" id="Mov" onclick="MostrarForm('login')">Iniciar Sesión</a>
+            </div>
+            <div class="Registrarse">
+                <a href="#registro" class="nav-item registrar" id="Mov2" onclick="MostrarForm('registro')">Registrarse</a>
+            </div>
+        </div>
+
+
+
+
+        window.onload = () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.has('tipo')) {
+        MostrarForm('registro');
+    } else {
+        MostrarForm('login');
+    }
+};
+
+

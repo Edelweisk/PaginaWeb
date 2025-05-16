@@ -16,25 +16,26 @@ function MostrarForm(tipo){
 const LoginForm = document.getElementById("from-login");
 const registroForm = document.getElementById("from-registro");
 
+let Actual, Nuevo;
 if (tipo === "login"){
-    LoginForm.style.display = "block";
-
-    registroForm.style.display = "none";        
-
-} else if (tipo === "registro"){
-    LoginForm.style.display = "none";
-
-    registroForm.style.display = "block";        
-}
+    Actual = registroForm;
+    Nuevo = LoginForm;
+}else if (tipo === "registro"){
+    Actual = LoginForm;
+    Nuevo = registroForm;
 }
 
-window.onload = () => {
-    const urlParams = new URLSearchParams(window.location.search);
-    if (urlParams.has('tipo')) {
-        MostrarForm('registro');
+    if (Actual.style.display === "block") {
+        Actual.classList.add("salida");
+        setTimeout(() => {
+            Actual.style.display = "none";
+            Actual.classList.remove("salida");
+            Nuevo.style.display = "block";
+            Nuevo.classList.remove("salida");
+        }, 400);
     } else {
-        MostrarForm('login');
+        Nuevo.style.display = "block";
+        Nuevo.classList.remove("salida");
+        Actual.style.display = "none";
     }
-};
-
-
+}

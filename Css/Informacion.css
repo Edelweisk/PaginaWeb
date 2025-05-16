@@ -8,7 +8,6 @@
     background: rgba(255, 255, 255, 0.02);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-
     z-index: 10;
     box-shadow: -20px 0 50px rgba(0, 0, 0, 0.26);
     background-image: linear-gradient(rgba(65, 72, 147, 0.242), rgba(175, 176, 206, 0.133)), 
@@ -18,7 +17,24 @@
 
 .Texto1 {
     font-size: 2rem;
-    color: #ffffff;
+    color: #000000;
     text-align: center;
+    margin-top: 100px;
+}
+
+.Texto2 {
+    font-size: 1.5rem;
+    color: #000000;
+    margin: 10px 20px;
     margin-top: 20px;
+}
+
+.Texto3{
+    font-size: 1.7rem;
+    font-style: italic;
+    color: black;
+    margin: 10px 20px;
+    margin-top: 20px;
+    font-family: serif;
+    
 }

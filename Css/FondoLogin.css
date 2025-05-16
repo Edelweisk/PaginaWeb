@@ -36,27 +36,30 @@ nav .nav-contenido {
     align-items: center;
 }
 
-nav .nav-items {
+.nav-items {
+    margin-top: 100px;
     display: flex;
-    gap: 30px;
     align-items: center;
     text-transform: uppercase;
+    justify-content: space-evenly;
 }
 
 .nav-item {
     font-weight: 600;
     letter-spacing: 1px;
     font-size: 0.9rem;
-    position: relative;
-    padding: 8px 14px;
+    padding: 10px 65px;
     border-radius: 5px;
     transition: transform 0.3s ease, background-color 0.3s ease;
     text-decoration: none;
+
+
 }
 
 .iniciar {
     background-color: white;
     color: black;
+    border: solid 1px black;
 }
 
 .iniciar:hover {
@@ -68,6 +71,7 @@ nav .nav-items {
 .registrar {
     background-color: black;
     color: white;
+        border: solid 1px black;
 }
 
 .registrar:hover {
