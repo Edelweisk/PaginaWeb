@@ -39,3 +39,4 @@ if (tipo === "login"){
         Actual.style.display = "none";
     }
 }
+

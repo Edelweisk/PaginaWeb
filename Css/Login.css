@@ -17,7 +17,7 @@
 }
 
 /* FORMULARIO Login / Registro */
-.Login, .Registro {
+.Login {
     width: 90%;
     max-width: 420px;
     padding: 40px;
@@ -29,6 +29,20 @@
     border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
+.Registro {
+    max-height: 90%;
+    width: 90%;
+    max-width: 420px;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.658);
+    border-radius: 20px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+    text-align: center;
+    animation: Aparicion 0.6s ease-out forwards;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+
 /* TÍTULOS */
 .Login h2, .Registro h2 {
     margin-bottom: 25px;
@@ -38,11 +52,12 @@
     font-weight: 600;
 }
 
+
 /* CAMPOS INPUT */
 form input, form button {
     width: 100%;
     padding: 14px 16px;
-    margin: 12px 0;
+    margin: 6px 0;
     border-radius: 10px;
     font-size: 16px;
     transition: all 0.3s ease;
@@ -183,5 +198,15 @@ p {
 
 .salida {
     animation: Salida 0.4s forwards;
+}
+
+
+.Genero label {
+    cursor: pointer;
+    padding: 10px 20px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    margin-right: 10px;
+    transition: background-color 0.3s, color 0.3s;
 }
 
