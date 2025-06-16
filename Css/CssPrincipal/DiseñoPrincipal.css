@@ -1,0 +1,197 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    background-image: url('Imagenes/Fondo.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: #333;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 40px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.logo{
+font-size: 22px;
+font-weight: bold;
+color: #6b2fc7;
+    display: flex;
+    align-items: center;
+}
+        .logo img {
+            max-height: 65px;
+        }
+
+
+.menu {
+    display: flex;
+    align-items: center;
+    gap: 100px;
+}
+
+.menu a {
+    margin: 0 15px;
+    color: #333;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.menu a:hover {
+    color: #6b2fc7;
+}
+
+.acciones {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.btn-link {
+    
+    color: #6b2fc7;
+    padding: 8px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+}
+.btn-link:hover {
+    background-color: #d1c3e8;
+}
+
+
+.btn-registrarse {
+    background-color: #6b2fc7;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.btn-registrarse:hover {
+    background-color: #5323a8;
+}
+
+.principal {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.principal h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.subtitulo {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 50px;
+}
+
+.tarjetas {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    padding: 0 20px;
+}
+
+.card {
+    background-color: white;
+    border-radius: 10px;
+    padding: 25px;
+    width: 250px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.card2{
+     transition: transform 0.3s ease;
+}
+
+.card2:hover {
+    transform: translateY(-5px);
+}
+
+
+.card h2 {
+    font-size: 22px;
+    color: #6b2fc7;
+    margin-bottom: 10px;
+}
+
+.card p {
+    font-size: 15px;
+    color: #444;
+}
+
+ .beneficios {
+      padding: 3rem 2rem;
+      background: #f0f4ff;
+      text-align: center;
+    }
+
+    .beneficios h2{
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #333;
+    }
+
+    .beneficio {
+      max-width: 600px;
+      margin: auto;
+      margin-bottom: 1rem;
+    }
+
+    .footer {
+      background: #222;
+      color: #fff;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .social a {
+      margin: 0 10px;
+      color: #fff;
+      font-size: 1.2rem;
+      transition: color 0.3s;
+    }
+
+    .social a:hover {
+      color: #6633cc;
+    }
+
+
+
+
+
+    @media  (max-width: 1200px), (max-width: 992px), (max-width: 768px) {
+      .tarjetas {
+        align-items: center;
+      }
+
+      .navbar{
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+        
+      }
+
+      .menu{
+        gap: 10px;
+        align-items: center;
+      }
+    }
+
+    
